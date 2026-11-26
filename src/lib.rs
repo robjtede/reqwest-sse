@@ -47,7 +47,7 @@ use crate::error::{EventError, EventSourceError};
 /// Represents a stream of Server-Sent Events.
 pub type ServerSentEvents = Pin<Box<dyn Stream<Item = Result<Event, EventError>>>>;
 
-pub static MIME_EVENT_STREAM: &[u8] = russe::MEDIA_TYPE_STR.as_bytes();
+pub static MIME_EVENT_STREAM: &[u8] = b"text/event-stream";
 
 /// Returns `true` if the given [`HeaderValue`] is an event stream MIME type.
 fn is_event_stream(value: &HeaderValue) -> bool {
